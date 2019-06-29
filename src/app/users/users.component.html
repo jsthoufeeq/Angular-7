@@ -1,0 +1,95 @@
+<!-- <p>
+  users works!
+</p>
+<form [formGroup]="userForm">
+  <label>
+    First Name:
+    <input type="text" formControlName="firstName"/>
+  </label>
+
+  <label>
+    Last Name:
+    <input type="text" formControlName="lastName"/>
+  </label>
+
+  <div formGroupName="address">
+    <h3>Address</h3>
+
+    <label>
+      Street:
+      <input type="text" formControlName="street"/>
+    </label>
+
+    <label>
+      City
+      <input type="text" formControlName="city"/>
+    </label>
+
+    <label>
+      state:
+      <input type="text" formControlName="state" />
+    </label>
+
+    <label>
+      zip:
+      <input type="text" formControlName="zip" />
+    </label>
+  </div>
+  <button type="submit" [disabled]="!userForm.valid">Submit</button>
+</form> -->
+
+<!-- 
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3" *ngIf="hideForm">
+      <h2>Angular 6 template driven forms</h2>
+      <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate [@changeFormSize]=currentState>
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" class="form-control" name="firstName" [(ngModel)]="model.firstName" #firstNme="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstNme.invalid }" required />
+          <div *ngIf="f.submitted && firstNme.invalid" class="invalid-feedback">
+            <div *ngIf="firstNme.errors.required">FirstName is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+            <label for="lastName">last Name</label>
+            <input type="text" class="form-control" name="lastName" [(ngModel)]="model.lastName" #lastNme="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lastNme.invalid }" required />
+            <div *ngIf="f.submitted && lastNme.invalid" class="invalid-feedback">
+              <div *ngIf="lastNme.errors.required">lastName is required</div>
+            </div>
+          </div>
+        <div class="form-group">
+          <button class="btn btn-primary">Register</button>
+        </div>
+      </form>      
+    </div>
+
+    <table *ngIf="displayTable" class="table table-dark">
+        <thead class="thead-light">
+          <tr>
+            <th>FirstName</th>
+            <th>lastName</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{model.firstName}}</td>
+            <td>{{model.lastName}}</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+
+  <span appDummy [changeText]="'thoufeeq'">Welcome</span>
+  <p>{{users | json}}</p>
+</div> -->
+
+<form [formGroup]="myForm" (ngSubmit)="submit(myForm)" novalidate>
+  <input formControlName="firstName"/>
+  {{myForm.controls.firstName}}
+  <div *ngIf="myForm.controls.firstName.errors.invalid ">
+    give a name !
+  </div>
+  <input formControlName="lastName"/>
+  <button type="submit">Submit</button>
+</form>
